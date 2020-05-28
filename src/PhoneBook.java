@@ -16,9 +16,8 @@ public class PhoneBook {
     }
 
     public void add(String fio, String numberPhone) {
-        Set<String> phone = new HashSet<>(Arrays.asList(numberPhone));
-        Set<String> phoneList = listPhone.getOrDefault(fio, phone);
-        phoneList.addAll(phone);
+        Set<String> phoneList = listPhone.getOrDefault(fio, new HashSet<>(Arrays.asList(numberPhone)));
+        phoneList.addAll(new HashSet<>(Arrays.asList(numberPhone)));
         listPhone.put(fio, phoneList);
     }
 }
